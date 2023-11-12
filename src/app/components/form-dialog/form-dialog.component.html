@@ -1,0 +1,53 @@
+<form class="flex flex-col space-y-3" (ngSubmit)="submitForm()">
+  <h2 mat-dialog-title class="text-slate-800">Información de la nota</h2>
+  <div mat-dialog-content>
+      <div class="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-3">
+        <div class="w-full">
+          <label for="title" class="block mb-1 text-sm text-slate-700">Título de la nota</label>
+          <input [(ngModel)]="noteData.title" name="title" type="text" id="title" autocomplete="off" placeholder="Ingrese el título de la nota" required class="bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-3">
+        <div class="w-full">
+          <label for="description" class="block mb-1 text-sm text-slate-700">Contenido</label>
+          <textarea [(ngModel)]="noteData.content" name="content" rows="5" autocomplete="off" placeholder="Ingrese el contenido de la nota" required class="bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"></textarea>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-3">
+        <div class="w-full">
+          <label for="type" class="block mb-1 text-sm text-slate-700">Tipo de nota</label>
+          <select [(ngModel)]="noteData.type" name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
+            <option selected disabled>Seleccione el tipo de nota</option>
+            <option value="1">Apuntes</option>
+            <option value="2">Recordatorio</option>
+          </select>
+        </div>
+      </div>
+  </div>
+  <div mat-dialog-actions>
+    <div class="w-full flex flex-row justify-end">
+      <button
+        type="button"
+        title="Cancelar"
+        (click)="closeDialog()"
+        class="mr-4 h-10 p-4 rounded-md drop-shadow-lg flex justify-center items-center md:border-2 md:border-red-400 md:text-red-400 text-gray-600 text-sm hover:animate-pulse">
+          Cancelar
+      </button>
+      <button
+        type="button"
+        title="Eliminar"
+        (click)="closeDialog()"
+        class="md:hidden mr-4 bg-red-400 h-10 p-4 rounded-md drop-shadow-lg flex justify-center items-center text-white text-sm hover:animate-pulse">
+          Eliminar
+      </button>
+      <button
+        type="submit"
+        title="Continuar"
+        class="mr-4 border-2 bg-emerald-700 h-10 p-4 rounded-md drop-shadow-lg flex justify-center items-center text-white text-sm hover:animate-pulse">
+          Continuar
+      </button>
+    </div>
+  </div>
+</form>
