@@ -1,30 +1,22 @@
-<div class="flex flex-col w-full md:flex-row md:w-1/12">
-  <div class="flex flex-row md:flex-col md:space-x-0 md:space-y-24 md:h-screen w-full h-20 p-4 space-x-9 min-w-[408px] md:min-w-[100px] shadow-md">
-    <div class="w-full h-full bg-yellow-200 rounded-full"></div>
-    <div class="w-full h-full bg-orange-200 rounded-full"></div>
-    <div class="w-full h-full bg-red-200 rounded-full"></div>
-    <div class="w-full h-full bg-blue-200 rounded-full"></div>
-    <div class="w-full h-full bg-green-200 rounded-full"></div>
+<nav class="border-gray-200 bg-gray-900">
+  <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+      <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Mis notas</span>
   </div>
-  <div class="w-full overflow-auto grid grid-cols-1 gap-2 p-5">
-    <div class="bg-yellow-200 h-52 rounded-md p-4">
-      <h3 class="font-bold truncate">Título de la nota</h3>
-      <hr class="bg-black h-px my-2">
-      <p class="text-slate-800 h-24 line-clamp-4 text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit animi ipsam veritatis atque repudiandae sint possimus dolorem tempore dolores? Velit cum quaerat sit voluptatibus, temporibus ratione dolorem ex animi odio.
-        Debitis amet quod quisquam suscipit modi fugit et aut, cum voluptatum dignissimos sit voluptatibus numquam adipisci. Nulla consequatur ipsum eos enim. Dolorem vel necessitatibus cum excepturi unde, quae nostrum ex.</p>
-      <div class="flex flex-row justify-between mt-3 items-center">
-        <i class="fa-solid fa-thumbtack bg-white p-2 rounded-full text-yellow-400"></i>
-        <p class="text-sm text-slate-600">25/10/2023, 12:45:00</p>
-      </div>
-    </div>
-    <div class="bg-green-200 h-52 rounded-md p-4">
-      <h3 class="font-bold truncate">Título del recordatorio</h3>
-      <hr class="bg-black h-px my-2">
-      <p class="text-slate-800 h-24 line-clamp-4 text-justify">Este es el contenido del recordatorio.</p>
-      <div class="flex flex-row justify-between mt-3 items-center">
-        <i class="fa-solid fa-bell bg-white p-2 rounded-full text-red-500"></i>
-        <p class="text-sm text-slate-600">25/10/2023, 23:15:00</p>
-      </div>
-    </div>
+</nav>
+<div class="flex flex-col md:flex-row">
+  <app-color-selector></app-color-selector>
+  <div
+    [ngClass]="{'hidden': noteList.length === 0}"
+    class="w-full overflow-auto grid grid-cols-1 md:grid-cols-4 grid-rows-3 gap-2 p-5">
+    <app-note-card
+      (click)="changeSelectedID(note.uuid!)"
+      *ngFor="let note of noteList" [note]="note"></app-note-card>
   </div>
+  <p
+    [ngClass]="{'hidden': noteList.length != 0}"
+    class="p-5 text-2xl">No hay notas disponibles</p>
+</div>
+
+<div class="hidden md:block hover:animate-pulse absolute bottom-5 right-5 p-6 bg-red-400 text-white rounded-lg">
+  <i class="fa-solid fa-trash text-4xl"></i>
 </div>
