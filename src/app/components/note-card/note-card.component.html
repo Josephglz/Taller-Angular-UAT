@@ -1,0 +1,29 @@
+<div
+  [ngClass]="
+  {
+    'bg-yellow-200': note.color == 1 || note.color > 5 || note.color == null || note.color < 1,
+    'bg-orange-200': note.color == 2,
+    'bg-red-200': note.color == 3,
+    'bg-blue-200': note.color == 4,
+    'bg-green-200': note.color == 5}"
+  class="h-52 rounded-md p-4 select-none shadow-md">
+  <h3 class="font-bold truncate">{{note.title}}</h3>
+  <hr class="bg-slate-600 h-[2px] my-2 rounded-full opacity-20">
+  <p class="text-slate-800 h-24 text-justify line-clamp-4 text-ellipsis">
+    {{note.content}}
+  </p>
+  <div class="flex flex-row justify-between mt-6">
+    <div>
+      <span class="inline-flex items-center justify-center w-6 h-6 me-2 text-sm font-semibold text-gray-800 bg-white rounded-full">
+        <i
+          [ngClass]="
+            {'text-yellow-400 fa-thumbtack': note.type == 1,
+            'text-red-500 fa-bell': note.type == 2}"
+          class="fa-solid"></i>
+      </span>
+    </div>
+    <div>
+      <p class="text-sm text-slate-600">{{note.timestamp}}</p>
+    </div>
+  </div>
+</div>
