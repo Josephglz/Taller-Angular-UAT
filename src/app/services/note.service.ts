@@ -22,6 +22,54 @@ export class NoteService {
       timestamp: '2020-01-01',
       type: 2,
       color: 4
+    },
+    {
+      uuid: '3',
+      title: 'Estudiar HTML',
+      content: 'Estudiar HTML para el taller de Angular',
+      timestamp: '2020-01-01',
+      type: 1,
+      color: 2
+    },
+    {
+      uuid: '4',
+      title: 'Estudiar HTML',
+      content: 'Estudiar HTML para el taller de Angular',
+      timestamp: '2020-01-01',
+      type: 2,
+      color: 5
+    },
+    {
+      uuid: '5',
+      title: 'Estudiar HTML',
+      content: 'Estudiar HTML para el taller de Angular',
+      timestamp: '2020-01-01',
+      type: 1,
+      color: 3
+    },
+    {
+      uuid: '6',
+      title: 'Estudiar HTML',
+      content: 'Estudiar HTML para el taller de Angular',
+      timestamp: '2020-01-01',
+      type: 2,
+      color: 2
+    },
+    {
+      uuid: '7',
+      title: 'Estudiar HTML',
+      content: 'Estudiar HTML para el taller de Angular',
+      timestamp: '2020-01-01',
+      type: 2,
+      color: 6
+    },
+    {
+      uuid: '8',
+      title: 'Estudiar HTML',
+      content: 'Estudiar HTML para el taller de Angular',
+      timestamp: '2020-01-01',
+      type: 2,
+      color: 1
     }
   ]
 
