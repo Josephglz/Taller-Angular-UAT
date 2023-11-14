@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AppComponent } from './app.component';
 import { NoteCardComponent } from './components/note-card/note-card.component';
@@ -24,6 +25,8 @@ import { FormDialogComponent } from './components/form-dialog/form-dialog.compon
     BrowserAnimationsModule,
     MatDialogModule,
     FormsModule,
+
+    DragDropModule,
 
   ],
   providers: [],
