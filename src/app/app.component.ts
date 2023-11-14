@@ -5,6 +5,10 @@ import { NoteService } from './services/note.service';
 import { MatDialog } from '@angular/material/dialog';
 import { FormDialogComponent } from './components/form-dialog/form-dialog.component';
 
+import {
+  moveItemInArray,
+} from '@angular/cdk/drag-drop';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
@@ -12,6 +16,7 @@ import { FormDialogComponent } from './components/form-dialog/form-dialog.compon
 
 export class AppComponent {
   selectedID: string = '';
+  deletedNotes: Note[] = [];
   constructor(
     private noteService: NoteService,
     public dialogRef: MatDialog
@@ -35,5 +40,13 @@ export class AppComponent {
 
     dialogRef.afterClosed().subscribe(result => {
     });
+  }
+
+  deleteNote(event: any): void {
+    if(event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      this.noteService.deleteNotes(event.previousContainer.data[event.previousIndex].uuid);
+    }
   }
 }

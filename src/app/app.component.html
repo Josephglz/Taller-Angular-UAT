@@ -3,20 +3,33 @@
       <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Mis notas</span>
   </div>
 </nav>
-<div class="flex flex-col md:flex-row">
+<div
+  cdkDropListGroup
+ class="flex flex-col md:flex-row">
   <app-color-selector></app-color-selector>
   <div
+    cdkDropList
+    #id="cdkDropList"
+    [cdkDropListData]="noteList"
     [ngClass]="{'hidden': noteList.length === 0}"
     class="w-full overflow-auto grid grid-cols-1 md:grid-cols-4 grid-rows-3 gap-2 p-5">
     <app-note-card
+      cdkDrag
+      (cdkDragDropped)="deleteNote($event)"
       (click)="changeSelectedID(note.uuid!)"
-      *ngFor="let note of noteList" [note]="note"></app-note-card>
+      *ngFor="let note of noteList" [note]="note">
+    </app-note-card>
   </div>
   <p
     [ngClass]="{'hidden': noteList.length != 0}"
-    class="p-5 text-2xl">No hay notas disponibles</p>
-</div>
+    class="p-5 text-2xl">No hay notas disponibles
+  </p>
 
-<div class="hidden md:block hover:animate-pulse absolute bottom-5 right-5 p-6 bg-red-400 text-white rounded-lg">
-  <i class="fa-solid fa-trash text-4xl"></i>
+  <div
+    cdkDropList
+    #id="cdkDropList"
+    [cdkDropListData]="deletedNotes"
+    class="hidden md:block hover:animate-pulse absolute bottom-5 right-5 p-6 bg-red-400 text-white rounded-lg">
+    <i class="fa-solid fa-trash text-4xl" cdkDrag></i>
+  </div>
 </div>
